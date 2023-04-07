@@ -45,7 +45,7 @@ Seaborn
 
 Sklearn
 
-# Contributing:
+# Contributing
 
 We welcome contributions from the community! If you have any ideas or suggestions for improving the project, please feel free to create an issue or submit a pull request.
 
