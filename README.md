@@ -16,11 +16,12 @@
         <li><a href="#installation">Installation</a></li>
       </ul>
     </li>
-    <li><a href="#usage">Usage</a></li>
-    <li><a href="#roadmap">Roadmap</a></li>
-    <li><a href="#contributing">Contributing</a></li>
-    <li><a href="#license">License</a></li>
-    <li><a href="#contact">Contact</a></li>
+    <li><a href="#Data Description">Data Description</a></li>
+    <li><a href="#Data Pre-processing">Data Pre-processing</a></li>
+    <li><a href="#contributing">Model Training and Evaluation</a></li>
+    <li><a href="#Model Deployment">Model Deployment</a></li>
+    <li><a href="#Contributing">Contributing</a></li>
+    <li><a href="#License">License</a></li>
     <li><a href="#acknowledgments">Acknowledgments</a></li>
   </ol>
 </details>
@@ -137,7 +138,7 @@ Don't forget to give the project a star! Thanks again!
 5. Open a Pull Request
 
 <!-- LICENSE -->
-## License
+# License
 
 Distributed under the GNU General Public License v3.0. See `LICENSE.txt` for more information.
 
