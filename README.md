@@ -115,7 +115,7 @@ The following Machine Learning Algorithms are used:
 
 # Model Deployment
 
-The file ```Deployment.py``` contains the complete code for deployment which is deployed in Streamlit. Streamlit is an open-source Python library that allows you to create interactive web applications for machine learning and data science projects.
+The file ```Spam Classification Deployment.py``` contains the complete code for deployment which is deployed in Streamlit. Streamlit is an open-source Python library that allows you to create interactive web applications for machine learning and data science projects.
 
 To run the Deployment.py file, Execute the following Command in your command prompt
 
