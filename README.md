@@ -16,12 +16,12 @@
         <li><a href="#installation">Installation</a></li>
       </ul>
     </li>
-    <li><a href="#Data Description">Data Description</a></li>
-    <li><a href="#Data Pre-processing">Data Pre-processing</a></li>
-    <li><a href="#contributing">Model Training and Evaluation</a></li>
-    <li><a href="#Model Deployment">Model Deployment</a></li>
-    <li><a href="#Contributing">Contributing</a></li>
-    <li><a href="#License">License</a></li>
+    <li><a href="#data-Description">Data Description</a></li>
+    <li><a href="#data-Pre-processing">Data Pre-processing</a></li>
+    <li><a href="#model-Training-and-Evaluation">Model Training and Evaluation</a></li>
+    <li><a href="#model-Deployment">Model Deployment</a></li>
+    <li><a href="#contributing">Contributing</a></li>
+    <li><a href="#license">License</a></li>
     <li><a href="#acknowledgments">Acknowledgments</a></li>
   </ol>
 </details>
