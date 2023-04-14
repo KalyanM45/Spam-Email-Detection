@@ -120,7 +120,7 @@ The file ```Spam Classification Deployment.py``` contains the complete code for 
 To run the Deployment.py file, Execute the following Command in your command prompt
 
  ```sh
-    python Deployment.py
+    python Spam Classification Deployment.py
   ```
 <!-- CONTRIBUTING -->
 
