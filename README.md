@@ -1,5 +1,7 @@
 # Spam Email Detection using Machine Learning Algorithms
 
+<a href="https://medium.com/@kalyanmurapaka274/spam-e-mail-classification-using-machine-learning-caf5653e58e1"># Visit my Blog on Medium</a>  
+
 <!-- TABLE OF CONTENTS -->
 <details>
   <summary><h2 style="display: inline-block">Table of Contents</h2></summary>
