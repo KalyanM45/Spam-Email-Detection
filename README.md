@@ -1,6 +1,6 @@
 # Spam Email Detection using Machine Learning 
 
-<a href="https://medium.com/@kalyanmurapaka274/spam-e-mail-classification-using-machine-learning-caf5653e58e1">Visit my Blog on Medium</a> 
+<a href="https://medium.com/@kalyanmurapaka274/spam-e-mail-classification-using-machine-learning-caf5653e58e1">Visit my Blog on Medium</a> <br>
 <a href="https://ijrpr.com/uploads/V3ISSUE11/IJRPR7780.pdf">Visit my Research Paper</a> 
 
 <!-- TABLE OF CONTENTS -->
