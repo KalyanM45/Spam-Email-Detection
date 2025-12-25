@@ -5,3 +5,4 @@ pandas==2.2.3
 beautifulsoup4==4.12.3
 scikit-learn==1.6.1
 pydantic==2.10.6
+streamlit>=1.32.0
