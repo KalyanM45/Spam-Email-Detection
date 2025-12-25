@@ -1,5 +1,7 @@
-numpy
-pandas
-matplotlib
-scikit-learn
-seaborn
+fastapi==0.115.6
+uvicorn[standard]==0.34.0
+python-multipart==0.0.20
+pandas==2.2.3
+beautifulsoup4==4.12.3
+scikit-learn==1.6.1
+pydantic==2.10.6

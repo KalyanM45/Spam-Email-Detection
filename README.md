@@ -1,157 +1,177 @@
-# Spam Email Detection using Machine Learning
-### [Under Developement]
-<a href="https://medium.com/@kalyanmurapaka274/spam-e-mail-classification-using-machine-learning-caf5653e58e1">Visit my Blog on Medium</a>
-<br><br>
-<a href="https://ijrpr.com/uploads/V3ISSUE11/IJRPR7780.pdf">Visit my Research Paper</a> 
+# Spam Email Classifier
 
-<!-- TABLE OF CONTENTS -->
-<details>
-  <summary><h2 style="display: inline-block">Table of Contents</h2></summary>
-  <ol>
-    <li>
-      <a href="#about-the-project">About The Project</a>
-      <ul>
-        <li><a href="#built-with">Built With</a></li>
-      </ul>
-    </li>
-    <li>
-      <a href="#getting-started">Getting Started</a>
-      <ul>
-        <li><a href="#installation">Installation</a></li>
-      </ul>
-    </li>
-    <li><a href="#data-Description">Data Description</a></li>
-    <li><a href="#data-Pre-processing">Data Pre-processing</a></li>
-    <li><a href="#model-Training-and-Evaluation">Model Training and Evaluation</a></li>
-    <li><a href="#model-Deployment">Model Deployment</a></li>
-    <li><a href="#contributing">Contributing</a></li>
-    <li><a href="#license">License</a></li>
-    <li><a href="#acknowledgments">Acknowledgments</a></li>
-  </ol>
-</details>
+A modern full-stack spam email classification application with FastAPI backend and React frontend.
 
+## 🚀 Features
 
+- **Direct Email Prediction**: Classify individual emails as Spam or Ham
+- **MBOX Batch Processing**: Upload and process entire MBOX files
+- **Modern UI**: Professional, responsive design
+- **Fast API**: Async FastAPI with auto-generated docs
+- **ML Pipeline**: Scikit-learn based classification
 
-<!-- ABOUT THE PROJECT -->
-## About The Project
+## 📋 Tech Stack
 
-Spam detection is the process of identifying and filtering out unwanted or unsolicited messages, typically in the form of emails or text messages. These messages are often sent by spammers or malicious actors with the intent of promoting a product, service, or website, or to trick the recipient into providing personal information or downloading malware. Spam detection typically involves the use of machine learning algorithms that can analyze the content of messages and identify patterns or characteristics that are commonly associated with spam. These algorithms can be trained on large datasets of labeled examples of spam and legitimate messages, allowing them to learn to distinguish between the two with a high degree of accuracy. Effective spam detection is an important task for both individuals and organizations, as it can help to prevent unwanted messages from cluttering inboxes, reduce the risk of phishing attacks, and improve overall cybersecurity.
+**Backend:**
+- FastAPI 0.115.6
+- Python 3.10+
+- scikit-learn
+- pandas
+- BeautifulSoup4
 
-This repository contains a Python script that uses various machine learning models to classify spam messages from ham messages. The model is trained on a Popular dataset of Spam emails and we use multiple machine learning models for classification.
+**Frontend:**
+- React 18.3.1
+- Vite 6.0.5
+- Vanilla CSS
 
-### Built With
+## 🛠️ Installation
 
- - NumPy
- 
- - Pandas
+### Prerequisites
+- Python 3.10 or higher
+- Node.js 18 or higher
+- npm or yarn
 
- - Matplotlib
+### Backend Setup
 
- - Seaborn
-
- - Sklearn
- 
- <br>
- 
- Anyways you can install all the above mentioned libraries at a glance by executing the following command:
- 
-  ```sh
-  pip install -r requirements.txt
-  ```
-
-<!-- GETTING STARTED -->
-## Getting Started
-
-This is make you understand how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
-
-### Installation
-
-1. Clone the repo
-
-   ```sh
-   git clone https://github.com/KalyanMurapaka45/Spam-Email-Detection.git
+1. **Install Python dependencies:**
+   ```bash
+   pip install -r requirements.txt
    ```
-2. Install the required libraries
 
-   ```sh
-    pip install -r requirements.txt
+2. **Ensure models are in place:**
+   - Model: `outputs/2025-12-25_14-02-05/models/SVM_model.pkl`
+   - Vectorizer: `outputs/2025-12-25_14-02-05/models/vectorizer.pkl`
+
+### Frontend Setup
+
+1. **Install Node dependencies:**
+   ```bash
+   cd frontend
+   npm install
    ```
-3. Open and execute ```.ipynb``` file (After complete Execution you will get a ```.pkl``` file for project Deployment
 
-# Dataset Description
+## 🚀 Running the Application
 
-We have utilized the Email-Spam dataset, which is publicly available on Kaggle. The dataset comprises a collection of 5,572 emails, each having two features: Category and Message. 
+### Development Mode
 
-```Message```   Message feature contains the actual text of the email. 
+**Terminal 1 - Backend:**
+```bash
+python main.py
+```
+Or:
+```bash
+uvicorn main:app --reload --host 0.0.0.0 --port 8000
+```
 
-```Category```  The Category feature distinguishes between Spam and Ham emails
+**Terminal 2 - Frontend:**
+```bash
+cd frontend
+npm run dev
+```
 
-# Data Pre-processing
+**Access:**
+- Frontend: http://localhost:3000
+- Backend API: http://localhost:8000
+- API Docs: http://localhost:8000/docs
 
-### Steps Done:
+### Production Mode
 
-- The Unnamed: 2, Unnamed: 3, and Unnamed: 4 columns are dropped.
+**Backend:**
+```bash
+uvicorn main:app --host 0.0.0.0 --port 8000 --workers 4
+```
 
-- The Category column is converted to binary values.
+**Frontend:**
+```bash
+cd frontend
+npm run build
+# Serve the dist/ folder with nginx or similar
+```
 
-- The dataset is split into training and testing sets using train_test_split() function from sklearn.model_selection.
+## 📁 Project Structure
 
-- The emails are transformed into numerical features using the TfidfVectorizer() function from sklearn.feature_extraction.text.
-<br>
+```
+├── main.py                 # FastAPI application
+├── requirements.txt        # Python dependencies
+├── src/
+│   ├── pipeline/          # ML pipeline
+│   ├── components/        # Data processing
+│   ├── config/            # Configuration
+│   └── utils/             # Utilities
+├── frontend/              # React application
+│   ├── src/
+│   │   ├── components/   # React components
+│   │   ├── services/     # API client
+│   │   └── ...
+│   └── package.json
+├── data/                  # Data and models
+└── logs/                  # Application logs
+```
 
+## 🔌 API Endpoints
 
-Intially the 'Unnamed: 2', 'Unnamed: 3', and 'Unnamed: 4' columns are then dropped from the DataFrame and the code checks for null values in the DataFrame using the 'isnull()' method. The 'Category' column in the DataFrame is then converted to numerical values (0 and 1) where 'spam' is replaced with 0 and 'ham' is replaced with 1.
-The number of values in each category is printed using the 'value_counts()' method. The X and Y variables are then created where X stores the 'Message' column of the DataFrame, and Y stores the 'Category' column. The code then splits the data into training and testing sets using the 'train_test_split()' method from the scikit-learn library. The TfidfVectorizer is then used to extract features from the text data. The 'min_df' parameter is set to 1, the 'stop_words' parameter is set to 'english', and the 'lowercase' parameter is set to 'True'. The feature extraction is performed on both the training and testing data using the 'fit_transform()' and 'transform()' methods.
-Finally, the 'Y_train' and 'Y_test' variables are converted to integers.
+### Health Check
+```
+GET /api/health
+```
 
-# Model Training and Evaluation
+### Single Email Prediction
+```
+POST /api/predict
+Content-Type: application/json
 
-As we already splitted the dataset into training and testing parts, the machine learning models can be able to train on the training data by using ```fit()``` method and then we are testing the trained machine learning model by using ```predict()``` method. To know the performance of the  trained machine learning models we are evaluating the predicted data and original data by using evaluation metrics such as accuracy, precision, recall, and F1-score.
+{
+  "email_body": "Your email content here",
+  "subject": "Optional subject",
+  "recipients": "Optional recipients"
+}
+```
 
-The following Machine Learning Algorithms are used:
+### MBOX File Upload
+```
+POST /api/predict-mbox
+Content-Type: multipart/form-data
 
-- Logistic Regression
-- K Nearest Neighbors
-- Decision Trees
-- Random Forest
-- Stacking model
+file: <mbox file>
+```
 
-# Model Deployment
+### Download Results
+```
+GET /api/download/{filename}
+```
 
-The file ```Spam Classification Deployment.py``` contains the complete code for deployment which is deployed in Streamlit. Streamlit is an open-source Python library that allows you to create interactive web applications for machine learning and data science projects.
+## 🔒 Security
 
-To run the Deployment.py file, Execute the following Command in your command prompt
+- CORS configured for localhost (update for production)
+- Input validation with Pydantic
+- File type validation for uploads
+- Error handling and logging
 
- ```sh
-    python Spam Classification Deployment.py
-  ```
-  
-![logo](https://github.com/KalyanMurapaka45/Spam-Email-Detection/blob/main/Data%20Source/deployment.png)
-<!-- CONTRIBUTING -->
+## 📊 Model Information
 
-# Contributing
+- **Type**: Binary Classification
+- **Labels**: 0 = Spam, 1 = Ham
+- **Features**: TF-IDF vectorization
+- **Algorithm**: SVM (Support Vector Machine)
 
-Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+## 🚀 Deployment
 
-If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
-Don't forget to give the project a star! Thanks again!
+See [Production Report](production_report.md) for detailed deployment instructions.
 
-1. Fork the Project
-2. Create your Feature Branch 
-3. Commit your Changes 
-4. Push to the Branch 
-5. Open a Pull Request
+**Quick Deploy Options:**
+- Railway
+- Render
+- Fly.io
+- AWS/GCP/Azure
 
-<!-- LICENSE -->
-# License
+## 📝 License
 
-Distributed under the GNU General Public License v3.0. See `LICENSE.txt` for more information.
+[Your License Here]
 
-# Acknowledgements
+## 👥 Contributors
 
-This project was inspired by the Kaggle dataset on Spam Email Detection and the corresponding competition. We also acknowledge the open-source Python libraries used in this project and their contributors.
+[Your Name]
 
+## 🐛 Issues
 
-
-
+Report issues at: [Your GitHub Issues URL]
