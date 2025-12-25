@@ -1,0 +1,40 @@
+# Vercel Ignore - Exclude everything except frontend
+# This prevents backend files from being uploaded to Vercel
+
+# Backend Python files and directories
+src/
+main.py
+requirements.txt
+pyproject.toml
+uv.lock
+.python-version
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*$py.class
+*.py
+
+# Data and models (75+ MB)
+data/
+outputs/
+logs/
+Notebook Experiments/
+
+# Backend environment files
+.env.example
+.env.production
+render.yaml
+
+# Git and IDE
+.git/
+.gitignore
+.vscode/
+.idea/
+
+# Root level node files (backend package.json)
+/package.json
+/package-lock.json
+
+# Keep frontend directory - it will be built
+# !frontend/
