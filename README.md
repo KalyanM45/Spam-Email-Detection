@@ -1,177 +1,101 @@
-# Spam Email Classifier
+# Spam Email Classification System
 
-A modern full-stack spam email classification application with FastAPI backend and React frontend.
+A production-grade machine learning system designed to robustly classify emails as "Spam" or "Ham" (legitimate). This project features a modular pipeline architecture for training and inference, integrated with a modern Streamlit user interface for easy interaction.
 
-## 🚀 Features
+## 🚀 Key Features
 
-- **Direct Email Prediction**: Classify individual emails as Spam or Ham
-- **MBOX Batch Processing**: Upload and process entire MBOX files
-- **Modern UI**: Professional, responsive design
-- **Fast API**: Async FastAPI with auto-generated docs
-- **ML Pipeline**: Scikit-learn based classification
+- **Advanced ML Pipeline**: Modular design separating data ingestion, transformation, and model training.
+- **Multiple Model Support**: evaluation of various algorithms including SVM, Logistic Regression, Decision Trees, and Random Forest.
+- **Interactive Web UI**: Built with Streamlit for real-time single-email analysis and batch processing.
+- **MBOX Support**: Native capability to process and classify entire `mbox` email archives.
+- **Detailed Analytics**: Comprehensive logging and performance metrics (Precision, Recall, F1-Score).
 
-## 📋 Tech Stack
+## 🛠️ Tech Stack
 
-**Backend:**
-- FastAPI 0.115.6
-- Python 3.10+
-- scikit-learn
-- pandas
-- BeautifulSoup4
+- **Language**: Python 3.10+
+- **Frontend**: Streamlit
+- **ML Framework**: Scikit-learn
+- **Data Processing**: Pandas, NumPy, BeautifulSoup4
+- **Project Management**: `uv` (recommended) or `pip`
 
-**Frontend:**
-- React 18.3.1
-- Vite 6.0.5
-- Vanilla CSS
+## 📂 Project Structure
 
-## 🛠️ Installation
+```
+├── app.py                  # Main Streamlit Web Application
+├── requirements.txt        # Project dependencies
+├── main.py                 # (Optional) Alternative entry point
+├── src/
+│   ├── components/         # Core processing modules (Ingestion, Transformation)
+│   ├── pipeline/           # Orchestration pipelines (Training, Prediction)
+│   ├── config/             # Configuration and parameters
+│   └── utils/              # Helper functions, logging, and state management
+├── data/                   # Dataset storage (inputs)
+├── outputs/                # Training artifacts (models, vectorizers)
+└── logs/                   # System runtime logs
+```
 
-### Prerequisites
-- Python 3.10 or higher
-- Node.js 18 or higher
-- npm or yarn
+## ⚡ Installation
 
-### Backend Setup
+1. **Clone the Repository**
+   ```bash
+   git clone <repository_url>
+   cd Spam-Email-Detection
+   ```
 
-1. **Install Python dependencies:**
+2. **Set up Environment**
+   It is recommended to use a virtual environment.
+   ```bash
+   python -m venv .venv
+   source .venv/bin/activate  # On Windows: .venv\Scripts\activate
+   ```
+
+3. **Install Dependencies**
    ```bash
    pip install -r requirements.txt
    ```
 
-2. **Ensure models are in place:**
-   - Model: `outputs/2025-12-25_14-02-05/models/SVM_model.pkl`
-   - Vectorizer: `outputs/2025-12-25_14-02-05/models/vectorizer.pkl`
+## 🖥️ Usage
 
-### Frontend Setup
+### 1. Running the Web Application
+Launch the interactive dashboard to classify emails instantly.
 
-1. **Install Node dependencies:**
+```bash
+streamlit run app.py
+```
+
+- **Single Email Tab**: Paste email content to get an immediate Spam/Ham prediction with a confidence score.
+- **Batch Processing Tab**: Upload an `.mbox` file to process multiple emails at once and download the results as a CSV.
+
+### 2. Training the Model
+(Optional) If you wish to retrain the models on new data:
+
+1. Place your dataset in `data/dataset/dataset.csv`.
+2. Run the training pipeline:
    ```bash
-   cd frontend
-   npm install
+   python -m src.pipeline.training_pipeline
    ```
+3. Artifacts (Model & Vectorizer) will be saved in the `outputs/` directory.
+4. **Important**: Update `src/config/config.py` with the new paths to your generated model and vectorizer if they change.
 
-## 🚀 Running the Application
+## ⚙️ Configuration
 
-### Development Mode
+The system is highly configurable via `src/config/config.py`. You can adjust:
+- Model hyperparameters (Grid Search configuration)
+- Input/Output paths
+- Training parameters (Cross-validation folds, etc.)
 
-**Terminal 1 - Backend:**
-```bash
-python main.py
-```
-Or:
-```bash
-uvicorn main:app --reload --host 0.0.0.0 --port 8000
-```
+## 📊 Model Performance
 
-**Terminal 2 - Frontend:**
-```bash
-cd frontend
-npm run dev
-```
+The pipeline automatically evaluates models using 5-fold cross-validation. Metrics including Accuracy, Precision, Recall, and F1-Score are logged for each experiment. By default, the system selects the best performing model (often SVM or Random Forest) for inference.
 
-**Access:**
-- Frontend: http://localhost:3000
-- Backend API: http://localhost:8000
-- API Docs: http://localhost:8000/docs
+## 🤝 Contributing
 
-### Production Mode
-
-**Backend:**
-```bash
-uvicorn main:app --host 0.0.0.0 --port 8000 --workers 4
-```
-
-**Frontend:**
-```bash
-cd frontend
-npm run build
-# Serve the dist/ folder with nginx or similar
-```
-
-## 📁 Project Structure
-
-```
-├── main.py                 # FastAPI application
-├── requirements.txt        # Python dependencies
-├── src/
-│   ├── pipeline/          # ML pipeline
-│   ├── components/        # Data processing
-│   ├── config/            # Configuration
-│   └── utils/             # Utilities
-├── frontend/              # React application
-│   ├── src/
-│   │   ├── components/   # React components
-│   │   ├── services/     # API client
-│   │   └── ...
-│   └── package.json
-├── data/                  # Data and models
-└── logs/                  # Application logs
-```
-
-## 🔌 API Endpoints
-
-### Health Check
-```
-GET /api/health
-```
-
-### Single Email Prediction
-```
-POST /api/predict
-Content-Type: application/json
-
-{
-  "email_body": "Your email content here",
-  "subject": "Optional subject",
-  "recipients": "Optional recipients"
-}
-```
-
-### MBOX File Upload
-```
-POST /api/predict-mbox
-Content-Type: multipart/form-data
-
-file: <mbox file>
-```
-
-### Download Results
-```
-GET /api/download/{filename}
-```
-
-## 🔒 Security
-
-- CORS configured for localhost (update for production)
-- Input validation with Pydantic
-- File type validation for uploads
-- Error handling and logging
-
-## 📊 Model Information
-
-- **Type**: Binary Classification
-- **Labels**: 0 = Spam, 1 = Ham
-- **Features**: TF-IDF vectorization
-- **Algorithm**: SVM (Support Vector Machine)
-
-## 🚀 Deployment
-
-See [Production Report](production_report.md) for detailed deployment instructions.
-
-**Quick Deploy Options:**
-- Railway
-- Render
-- Fly.io
-- AWS/GCP/Azure
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
 ## 📝 License
 
-[Your License Here]
-
-## 👥 Contributors
-
-[Your Name]
-
-## 🐛 Issues
-
-Report issues at: [Your GitHub Issues URL]
+Distributed under the MIT License. See `LICENSE` for more information.
