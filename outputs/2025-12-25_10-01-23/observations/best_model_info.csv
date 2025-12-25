@@ -1,0 +1,12 @@
+Attribute,Value
+Best Model Name,SVM
+Accuracy,0.979066985645933
+Precision,0.9789275513603889
+Recall,0.979066985645933
+F1-Score,0.9785830328138276
+CV Score,0.9891548320127734
+Best Parameters,"{
+  ""C"": 10,
+  ""gamma"": ""scale"",
+  ""kernel"": ""linear""
+}"

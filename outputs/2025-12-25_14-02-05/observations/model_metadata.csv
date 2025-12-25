@@ -1,0 +1,2 @@
+timestamp,best_model_name,best_model_params,best_model_metrics,all_models,tfidf_features,train_samples,test_samples
+2025-12-25_14-02-05,SVM,"{'C': 10, 'gamma': 'scale', 'kernel': 'linear'}","{'accuracy': 0.979066985645933, 'precision': 0.9789275513603889, 'recall': 0.979066985645933, 'f1_score': 0.9785830328138276, 'best_params': {'C': 10, 'gamma': 'scale', 'kernel': 'linear'}, 'best_cv_score': np.float64(0.9891548320127734)}","LogisticRegression, DecisionTree, SVM, KNN, RandomForest",6847,3900,1672

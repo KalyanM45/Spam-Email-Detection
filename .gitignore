@@ -15,15 +15,6 @@ ENV/
 
 # Logs
 logs/
-
-# Model outputs and artifacts
-outputs/
-results/
-*.pkl
-*.pickle
-
-# Data files
-*.csv
 *.mbox
 
 # Frontend / Node.js
