@@ -1,0 +1,15 @@
+{
+    "name": "spam-email-classification",
+    "version": "1.0.0",
+    "description": "Spam Email Classification - ML-powered spam detection",
+    "scripts": {
+        "dev": "concurrently \"npm run dev:backend\" \"npm run dev:frontend\"",
+        "dev:backend": "python main.py",
+        "dev:frontend": "cd frontend && npm run dev",
+        "install:all": "cd frontend && npm install",
+        "build:frontend": "cd frontend && npm run build"
+    },
+    "devDependencies": {
+        "concurrently": "^9.1.0"
+    }
+}
