@@ -19,5 +19,5 @@ Notebook Experiments/
 render.yaml
 
 # Root config
-package.json
-package-lock.json
+/package.json
+/package-lock.json
