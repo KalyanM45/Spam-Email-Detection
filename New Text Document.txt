@@ -1,0 +1,5 @@
+<<<<<<< HEAD
+print("My code")
+=======
+print("Original code")
+>>>>>>> main
