@@ -1,6 +1,8 @@
-# Spam detection demo
+# Program to check palindrome
 
-text = input("Enter message: ")
+string = input("Enter a string: ")
 
-for i in range(1, 11):
-    print(i, "->", i*i)
+if string == string[::-1]:
+    print("Palindrome")
+else:
+    print("Not Palindrome")
