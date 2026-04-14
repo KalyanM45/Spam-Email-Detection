@@ -2,7 +2,5 @@
 
 text = input("Enter message: ")
 
-if "win" in text.lower():
-    print("Spam")
-else:
-    print("Not Spam")
+for i in range(1, 11):
+    print(i, "->", i*i)
