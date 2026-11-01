@@ -1,6 +1,6 @@
 email = input("Enter email message: ")
 
-spam_words = ["win", "free", "prize", "offer"]
+spam_words = ["win", "free", "prize", "offer", "urgent"]
 
 email = email.lower()
 
