@@ -99,3 +99,8 @@ The pipeline automatically evaluates models using 5-fold cross-validation. Metri
 ## 📝 License
 
 Distributed under the MIT License. See `LICENSE` for more information.
+Project Update
+
+This project is designed to detect spam emails using machine learning techniques.
+
+Update: Repository changes made as part of Practical No. 7 – Fork a Repository and Create a Pull Request.
